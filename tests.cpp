@@ -1,5 +1,8 @@
 #include "vector.h"
+#include "graph.h"
 #include "string.h"
+#include "queue.h"
+#include "stack.h"
 
 // no memory leaks :D
 void vectorExample() {
@@ -34,9 +37,49 @@ void vectorExample() {
 
 void stringExample() {
     string farts = "Hello!";
+    farts.swap(0,farts.size()-1);
     std::cout << farts << std::endl;
 }
 
+void graphExample() {
+    graphNode<int> a(1);
+    graphNode<int> b(2);
+    graphNode<int> c(3);
+    graphNode<int> d(4);
+    
+    two_way_con(&a,&b);
+    one_way_con(&b,&c);
+    two_way_con(&c,&d);
+}
+
+void queueExample() {
+    queue<int> q;
+    q.push_back(3);
+    q.push_back(2);
+    q.push_back(10);
+    std::cout << q.get_front() << std::endl;
+    q.pop_front();
+    std::cout << q.get_front() << std::endl;
+    q.pop_front();
+    std::cout << q.get_front() << std::endl;
+    q.pop_front();
+    std::cout << q.get_front() << std::endl;
+}
+
+void stackExample() {
+    stack<int> s;
+    s.push_front(1);
+    s.push_front(2);
+    s.push_front(3);
+    std::cout << s.get_front() << std::endl;
+    s.pop_front();
+    std::cout << s.get_front() << std::endl;
+    s.pop_front();
+    std::cout << s.get_front() << std::endl;
+    s.pop_front();
+    std::cout << s.get_front() << std::endl;
+}
+
 int main(int argc, char const *argv[]) {
-    vectorExample();
+    
 }

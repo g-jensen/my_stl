@@ -24,6 +24,7 @@ public:
     void remove(size_t index); // done
     void insert(T item, size_t index); // done
     void clear();
+    void swap(size_t index1, size_t index2);
     T& operator[](size_t index); // done
     size_t getCapacity(); // done
 protected:
@@ -126,4 +127,11 @@ inline void vector<T>::clear() {
     m_array = (T*)malloc(sizeof(T)*m_capacity);
     memset(m_array,0,m_capacity);
     m_size = 0;
+}
+
+template<typename T>
+inline void vector<T>::swap(size_t index1, size_t index2) {
+    T temp = (*this)[index1];
+    (*this)[index1] = (*this)[index2];
+    (*this)[index2] = temp;
 }
